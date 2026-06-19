@@ -1,0 +1,34 @@
+---
+title: Audio Not Detected
+description: Fix microphone/audio input issues in voice agent tests.
+---
+
+## Symptoms
+
+- Voice agent test does not receive audio
+- No waveform shown in dashboard
+
+## Causes
+
+- Microphone denied by browser
+- No input device selected
+
+## Solution
+
+<Steps>
+  <Step title="Check permissions">
+    ````
+    Grant mic access in browser prompt or via site settings.
+    ````
+  </Step>
+  <Step title="Test input">
+    ````
+    Use system settings to ensure mic is working.
+    ````
+  </Step>
+  <Step title="Reload Intrlume">
+    ````
+    Refresh the Intrlume dashboard and retry.
+    ````
+  </Step>
+</Steps>
