@@ -1,0 +1,27 @@
+/* sidebar-overrides — Intrlume docs */
+
+/* Section labels: uppercase, spaced, muted (like the app's nav headers) */
+.dai-sidebar-group-title {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  opacity: 0.55;
+}
+
+/* Active page: brand left-accent bar + slightly bolder */
+.dai-sidebar-page-active {
+  position: relative;
+  font-weight: 600;
+}
+.dai-sidebar-page-active::before {
+  content: "";
+  position: absolute;
+  left: -0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 18px;
+  width: 3px;
+  border-radius: 9999px;
+  background: var(--brand);
+}
