@@ -82,6 +82,11 @@
                 "icon": "workflow"
               },
               {
+                "title": "Create a campaign",
+                "path": "guides/create-a-campaign",
+                "icon": "megaphone"
+              },
+              {
                 "title": "View call logs",
                 "path": "guides/view-call-logs",
                 "icon": "phone-call"
