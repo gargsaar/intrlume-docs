@@ -24,6 +24,11 @@
                 "icon": "home"
               },
               {
+                "title": "How Intrlume Works",
+                "path": "how-intrlume-works",
+                "icon": "workflow"
+              },
+              {
                 "title": "Quickstart",
                 "path": "quickstart",
                 "icon": "zap"

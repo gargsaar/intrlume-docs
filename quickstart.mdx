@@ -1,76 +1,75 @@
 ---
-title: Quickstart Guide
-description: Create your first voice AI agent and make it live in minutes using the console.
+title: Quickstart
+description: Create your first voice AI agent, test it on a real call, and launch outreach — in minutes.
 ---
 
-## Prerequisites
+This guide takes you from zero to a working voice agent you can actually call.
+
+## Before you start
 
 <Callout kind="info">
-  You need an Intrlume account. Sign up at the console to access the live playground. No credit card is required for the initial test.
+  You need an Intrlume account. Sign in to the dashboard to begin — no phone hardware or coding required.
 </Callout>
 
-## Access the Playground
+## 1. Create an agent
 
-Open the Intrlume console and navigate to the live playground. This environment lets you describe, build, and test agents without leaving the page.
+In the dashboard, go to **Agents → New** and use **Quick Create**.
 
 <Steps>
   <Step title="Describe your agent" icon="edit-3">
-    Type a natural language description in the console. For example:
+    Give it a calling name and company, choose a voice and language (a primary language, plus an optional second), and describe the goal in plain language. For example:
 
     ```text
-    Create an agent that books solar demo appointments, confirms time slots, and handles rescheduling requests in Hindi and English.
+    Book solar demo appointments, confirm time slots, and handle rescheduling in Hindi and English.
     ```
   </Step>
-  <Step title="Generate the agent" icon="zap">
-    Click **Create Agent**. The system builds the agent in seconds and assigns a phone number for testing.
+  <Step title="Generate" icon="zap">
+    Click **Generate**. Intrlume writes the prompt and greeting, picks settings, and builds the conversation flow in seconds. You can refine all of it later in the visual workflow editor.
   </Step>
 </Steps>
 
-## Test the Agent with Live Calls
+<Callout kind="tip">
+  Prefer a guided setup? Open **Chat** and let the assistant walk you through creating an agent step by step.
+</Callout>
 
-Once generated, your agent appears in the console with status **Live**.
+## 2. Test it
+
+From the **Agents** list, try the agent before it ever talks to a real contact.
 
 <Tabs>
-  <Tab title="Voice Test" icon="phone">
-    Dial the provided number from your phone. Speak naturally—the agent handles interruptions, confirms details, and books appointments.
+  <Tab title="Test call" icon="phone">
+    Click **Test Call** and enter your number — the agent rings your phone so you can talk to it live. Speak naturally; it handles interruptions and follows the flow you described.
   </Tab>
-  <Tab title="Chat Test" icon="message-circle">
-    Use the in-console chat simulator to run text-based conversations and verify responses before going live.
+  <Tab title="Web test link" icon="globe">
+    Click **Generate Test Link** for a shareable, browser-based call (valid for about 30 minutes). Send it to a colleague to try without a phone.
   </Tab>
 </Tabs>
 
-## Review Evaluation Scores
+After a test call, open **Call Logs** to see the transcript, the recording, and any data the agent captured.
 
-After each test call, the console automatically runs evaluations.
+## 3. Launch outreach
 
-```json
-{
-  "agent_id": "ag_8c12f4",
-  "calls_last_7d": 10,
-  "evaluation_score": 86,
-  "metrics": {
-    "faithfulness": 92,
-    "hallucination": 0,
-    "topic_adherence": 97
-  }
-}
-```
+Ready to call real contacts? Three short steps:
 
-Review scores for faithfulness, hallucination, and topic adherence. If any metric falls below your threshold, refine the agent description and regenerate.
+<Steps>
+  <Step title="Upload an audience" icon="upload">
+    Go to **Audiences → New** and upload a CSV of contacts. Intrlume maps the columns and standardizes phone numbers for you.
+  </Step>
+  <Step title="Create a campaign" icon="megaphone">
+    Go to **Campaigns → New**, pick your audience and agent, set the calling window (days, hours, timezone) and retry rules, then activate the campaign.
+  </Step>
+  <Step title="Review results" icon="bar-chart">
+    Track progress on the campaign page, then dig into **Call Logs** and **Analytics** — answer rates, transcripts, outcomes, and extracted data.
+  </Step>
+</Steps>
 
-## Deploy to Production
+## Next steps
 
 <Columns cols={2}>
-  <Card title="Assign Phone Number" icon="phone" href="#deploy">
-    Connect an existing number or purchase one directly in the console.
+  <Card title="How Intrlume works" icon="workflow" href="/how-intrlume-works" horizontal>
+    Understand the full agent-to-insights loop.
   </Card>
-  <Card title="Monitor Calls" icon="bar-chart" href="#deploy">
-    Track concurrent calls, success rates, and transcripts in real time.
+  <Card title="Core concepts" icon="layers" href="/concepts" horizontal>
+    Agents, workflows, knowledge bases, and more.
   </Card>
 </Columns>
-
-## Next Steps
-
-- Explore additional use cases such as payment reminders and lead follow-up.
-- Set up webhooks to receive call transcripts in your backend.
-- Review the authentication guide to secure production API keys.
