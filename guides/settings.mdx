@@ -1,0 +1,56 @@
+---
+title: Settings
+description: Manage your profile, organization, team roles, phone numbers, and integration access.
+---
+
+**Settings** is where you manage your account and organization — your profile, your team, locale, phone numbers, and access for embedding and the API.
+
+## Roles: admin and member
+
+Every member of an organization has one of two roles:
+
+- **Admin** — manages the team (invite, remove, change roles), edits the org **locale**, manages **API keys** and **web-agent embedding**, and sees plan details.
+- **Member** — uses the platform (build agents, run campaigns) and can view the team, numbers, and usage — but can't manage the team or change org settings.
+
+## Profile
+
+Your personal details: **First Name, Last Name, Email Address, and Phone Number**. Save changes with **Save Profile**.
+
+## Organization
+
+- **Organization details** — name, ID, billing email, and member-since date (read-only).
+- **Locale** *(admin)* — **Country, Currency, and Timezone**. These are snapshotted onto new and edited agents; existing agents are unchanged.
+- **Plan & usage** — your plan's limits (agents, calls this period, knowledge bases, campaigns, leads, integrations) and your current credit balance.
+
+<Callout kind="info">
+  To update organization details or renew/upgrade your plan, email **admin@intrlume.tech**.
+</Callout>
+
+## Members
+
+Admins invite teammates by **email address** and assign a **Role** (Admin or Member). Admins can also change a member's role, remove members, and revoke pending invitations. Everyone can see the member list.
+
+## Phone Numbers
+
+View your **outbound** and **inbound** numbers and their monthly cost. To **add or remove numbers, email admin@intrlume.tech**.
+
+## Web Agent
+
+Your **public key** and **domain allowlist** for embedding a web agent on your website. Enter the origins (one per line) that may host the widget; leave it empty to allow all. To enable embedding for your organization, contact **admin@intrlume.tech**.
+
+## API keys
+
+*(Admin only.)* Generate a secret **`sk_live_`** key for server-to-server access — for example, a CRM integration. Keep it secret; regenerating a key immediately breaks any integration still using the old one. To enable API access for your organization, contact **admin@intrlume.tech**.
+
+## Billing
+
+A ledger of every charge — calls and number rentals — with the date, call/agent, duration, and credits used. Filter by date range or search by call or agent ID.
+
+## What needs admin@intrlume.tech
+
+| Task | Why |
+| --- | --- |
+| Update org details, renew or upgrade your plan | Plan/org changes are handled by the Intrlume team |
+| Add or remove phone numbers | Numbers are provisioned for you |
+| Enable embeddable web agents | Off by default per organization |
+| Enable server-to-server API access | Off by default per organization |
