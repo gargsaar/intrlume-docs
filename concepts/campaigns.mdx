@@ -1,30 +1,62 @@
 ---
 title: Campaigns
-description: Run calls to an audience on a schedule, with retries and concurrency — in Intrlume or from your CRM.
+description: Schedule outbound calls to an audience — with windows, retries, and concurrency — in Intrlume or from your CRM.
 ---
 
-A **campaign** runs your [agent](/concepts/agents) against an **audience** on a schedule you control. You can launch a campaign **inside your CRM** or in Intrlume.
+A **campaign** is a scheduled batch of outbound calls. Intrlume takes one [agent](/concepts/agents) and one or more contact lists, then calls everyone for you — on the schedule you set, with retries and a concurrency limit.
+
+## What a campaign needs
+
+| Item | Why it matters |
+| --- | --- |
+| Audience | The contacts to call — one or more lists |
+| Agent | The voice agent that makes the calls |
+| Phone number | A caller number for outbound dialing |
+| Schedule + timezone | When calls are allowed to run |
+| Retry rule | Whether, and how often, to try again |
+
+<Callout kind="info">
+  Campaigns place **outbound** calls, so they need a provisioned phone number and a plan beyond the free trial (the trial is web-only).
+</Callout>
 
 ## Set it up
 
 <Steps>
-  <Step title="Pick audience + agent" icon="users">
-    Choose one or more audiences and the agent that will make the calls.
+  <Step title="Basics" icon="megaphone">
+    Name the campaign, pick one or more audiences, and choose the agent.
   </Step>
-  <Step title="Set the window" icon="calendar">
-    Choose the date range, days, hours, and timezone calls are allowed to run.
+  <Step title="Duration" icon="calendar">
+    Set the start and end dates — calls only run inside this window.
   </Step>
-  <Step title="Set retries & pace" icon="refresh-cw">
-    Decide how often to retry (for example, unanswered only) and how many calls run at once.
+  <Step title="Schedule & retries" icon="refresh-cw">
+    Choose the days, hours, and timezone calls may run. Set how often to retry (every few days) and the retry mode — **all** leads or **unanswered only**.
   </Step>
 </Steps>
 
-## Run and manage
+## Statuses
 
-A campaign starts as a **draft**, then moves through **active → paused / resumed → completed**. Watch live progress — calls made, answer rate — and pause or stop at any time.
+| Status | Meaning |
+| --- | --- |
+| Draft | Created, not started yet |
+| Scheduled | Waiting for its start date |
+| Active | Calls are being made |
+| Paused | Calling is paused; resume anytime |
+| Completed | Finished, or reached its end date |
 
-<Callout kind="info">
-  Calls only dial inside your scheduled window and respect your concurrency limit, so you stay compliant and within capacity.
-</Callout>
+You can **pause and resume**, **end** early, **rerun** a finished campaign, and **exclude** specific contacts you don't want called.
 
-Review outcomes per campaign, or across everything in [Call Logs](/concepts/call-logs).
+## Scheduling & retries
+
+Calls only dial inside your schedule window (days, hours, timezone) and are paced to stay within limits. Outside the window the campaign **pauses and picks up automatically** in the next slot. With **unanswered-only** retries, Intrlume skips anyone who already answered and re-tries the rest every few days until the end date.
+
+## Concurrency
+
+How many calls run at once is set by your **outbound capacity** — the caller numbers your workspace has. Intrlume shows a capacity estimate while you schedule, and never exceeds your plan or balance.
+
+## Track a campaign
+
+Watch live progress — calls made and answer rate — and dig into per-campaign analytics: rounds, completed / failed / no-answer counts, average duration, and a per-contact history with recordings and summaries.
+
+## Run from your CRM
+
+With **campaign automations**, Intrlume can pull leads from your CRM on a schedule, create and run the campaign automatically, and push the results back to your CRM. Overlap rules keep it from re-calling anyone you've contacted recently.
