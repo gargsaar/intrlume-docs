@@ -1,9 +1,9 @@
 ---
 title: Campaigns
-description: Schedule outbound calls to an audience — with windows, retries, and concurrency — in Intrlume or from your CRM.
+description: Schedule outbound calls to an audience — with windows and retries — in Intrlume or from your CRM.
 ---
 
-A **campaign** is a scheduled batch of outbound calls. Intrlume takes one [agent](/concepts/agents) and one or more contact lists, then calls everyone for you — on the schedule you set, with retries and a concurrency limit.
+A **campaign** is a scheduled batch of outbound calls. Intrlume takes one [agent](/concepts/agents) and one or more contact lists, then calls everyone for you — on the schedule you set, with retries.
 
 ## What a campaign needs
 
@@ -47,11 +47,7 @@ You can **pause and resume**, **end** early, **rerun** a finished campaign, and 
 
 ## Scheduling & retries
 
-Calls only dial inside your schedule window (days, hours, timezone) and are paced to stay within limits. Outside the window the campaign **pauses and picks up automatically** in the next slot. With **unanswered-only** retries, Intrlume skips anyone who already answered and re-tries the rest every few days until the end date.
-
-## Concurrency
-
-How many calls run at once is set by your **outbound capacity** — the caller numbers your workspace has. Intrlume shows a capacity estimate while you schedule, and never exceeds your plan or balance.
+Calls only dial inside your schedule window (days, hours, timezone) and are paced to stay within telephony limits. Outside the window the campaign **pauses and picks up automatically** in the next slot. With **unanswered-only** retries, Intrlume skips anyone who already answered and re-tries the rest every few days until the end date.
 
 ## Track a campaign
 
@@ -59,4 +55,4 @@ Watch live progress — calls made and answer rate — and dig into per-campaign
 
 ## Run from your CRM
 
-With **campaign automations**, Intrlume can pull leads from your CRM on a schedule, create and run the campaign automatically, and push the results back to your CRM. Overlap rules keep it from re-calling anyone you've contacted recently.
+Launch a campaign straight from your CRM. In a list view in **Zoho, Freshworks, or Bigin**, select the contacts, pick an agent and a schedule, and Intrlume runs a paced campaign over them — every result (disposition, summary, and recording) is written back to the matching record.

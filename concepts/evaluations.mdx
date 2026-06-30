@@ -1,38 +1,59 @@
 ---
 title: Evaluations
-description: Automatic quality scoring of your calls — faithfulness, hallucination, and topic adherence.
+description: Automatic per-call scoring across accuracy and experience — so you can trust and improve your agents.
 ---
 
-**Evaluations** score the quality of your agent's conversations automatically, so you can trust what it says and catch problems early.
+**Evaluations** score the quality of your agent's calls automatically. Each call is rated on several dimensions, grouped into **accuracy** (did it get things right?) and **experience** (was it a good conversation?), then rolled up into an overall score.
 
-## What gets scored
+## Accuracy
 
 <Columns cols={3}>
   <Card title="Faithfulness" icon="circle-check">
-    How well the agent sticks to your content and instructions.
+    Sticks to your content and instructions — no making things up.
   </Card>
-  <Card title="Hallucination" icon="alert-triangle">
-    Whether the agent invented anything not backed by your content.
+  <Card title="Tool-call validity" icon="wrench">
+    Calls tools correctly, with valid inputs.
   </Card>
-  <Card title="Topic adherence" icon="target">
-    Whether the conversation stayed on the intended goal.
+  <Card title="Correct finish" icon="flag">
+    Ends the conversation cleanly instead of trailing off.
   </Card>
 </Columns>
+
+## Experience
+
+<Columns cols={2}>
+  <Card title="Conciseness" icon="scissors">
+    Gets to the point without rambling.
+  </Card>
+  <Card title="Conversation progression" icon="trending-up">
+    Keeps the conversation moving toward its goal.
+  </Card>
+  <Card title="Turn-taking" icon="repeat">
+    Takes turns naturally, without talking over the caller.
+  </Card>
+  <Card title="Speakability" icon="volume-2">
+    Says things that sound natural spoken aloud.
+  </Card>
+</Columns>
+
+## How scoring works
+
+Each dimension is scored from **0 to 1** and averaged into an **overall** score; a call **passes** at **0.80** and above. Most dimensions are judged by a model; tool-call validity and correct finish are checked by rules.
 
 ## How you use it
 
 <Steps>
   <Step title="Turn it on per agent" icon="toggle-right">
-    Enable evaluation for an agent so its calls are scored.
+    Enable evaluation for an agent so its calls are scored automatically.
   </Step>
   <Step title="Run or review" icon="flask-conical">
-    Score live calls, or run a test evaluation (text or audio) from the editor.
+    Scores appear on calls; you can also run a test evaluation (text or audio) from the editor.
   </Step>
   <Step title="Read the breakdown" icon="list-checks">
-    See scores per dimension and where to improve, then refine the agent and re-check.
+    See the score per dimension, the strengths, and the specific issues to fix — then refine the agent and re-check.
   </Step>
 </Steps>
 
 <Callout kind="info">
-  Evaluation is the quality loop behind [how Intrlume works](/how-intrlume-works) — measure, fix, and run again.
+  Optional deeper checks — completeness, staying in character, and following the prompt — can run when you want a self-improvement pass. Evaluation is the quality loop behind [how Intrlume works](/how-intrlume-works): measure, fix, and run again.
 </Callout>
