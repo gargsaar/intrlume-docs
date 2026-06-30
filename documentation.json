@@ -92,6 +92,11 @@
                 "icon": "phone-call"
               },
               {
+                "title": "View analytics",
+                "path": "guides/view-analytics",
+                "icon": "bar-chart"
+              },
+              {
                 "title": "Evaluate your agent",
                 "path": "guides/evaluate-your-agent",
                 "icon": "flask-conical"
