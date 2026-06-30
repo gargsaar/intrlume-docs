@@ -1,9 +1,9 @@
 ---
 title: Create a campaign
-description: Call a whole audience on a schedule — set it up in Intrlume, or launch it straight from your CRM.
+description: Call a whole audience on a schedule — set it up in Intrlume, manage it live, and track every outcome.
 ---
 
-A **campaign** calls a list of contacts with one agent, on a schedule you set, with automatic retries. Set one up in the dashboard, or launch it from your CRM.
+A **campaign** calls a list of contacts with one agent, on a schedule you set, and automatically retries over several rounds. Set one up in the dashboard, or launch it from your CRM.
 
 ## Before you start
 
@@ -15,24 +15,53 @@ You'll need:
 
 ## Create a campaign
 
-Go to **Campaigns → New** and follow the steps.
+Go to **Campaigns → New**. The builder has three steps.
 
-<Steps>
-  <Step title="Campaign basics" icon="megaphone">
-    Give the campaign a **name**, select one or more **audiences** (all their leads will be called), and pick the **agent**.
-  </Step>
-  <Step title="Set the duration" icon="calendar">
-    Choose a **start** and **end date** — calls only run inside this window.
-  </Step>
-  <Step title="Schedule & retries" icon="refresh-cw">
-    Set the days, hours, and **timezone** calls may run, how often to **retry** (every few days), and the retry mode — **all** leads or **unanswered only**.
-  </Step>
-  <Step title="Activate" icon="play">
-    The campaign starts as a **draft**. Activate it from the campaign page when you're ready — then pause, resume, or stop anytime.
-  </Step>
-</Steps>
+### 1. Campaign basics
 
-Track progress and outcomes on the campaign page and in [Call Logs](/guides/view-call-logs).
+- **Campaign Name** — a label for the run.
+- **Audience** — select **one or more** audience lists; every lead in them will be called.
+- **AI Agent** — the agent that makes the calls.
+
+### 2. Campaign duration
+
+- **Start Date** and **End Date** — calls only run within this window.
+
+### 3. Calling schedule & repeat calls
+
+- **Timezone** — the schedule below is read in this timezone.
+- **Time windows** — pick the **days** and **start/end times** calls may run. Add more than one with **Add Time Slot** (e.g. weekday mornings plus Saturday afternoons).
+- **How often to repeat** — after every lead has been called, wait this many days, then call again ("Call leads every N days").
+- **On repeat days, who to call** —
+  - **Everyone** — call all leads again.
+  - **Only leads who didn't pick up** — skip anyone who already answered and talked (10+ seconds).
+
+## Manage a running campaign
+
+A campaign starts as a **draft**. From the campaign page, the actions available depend on its status:
+
+| Status | What you can do |
+| --- | --- |
+| **Draft** | **Start** the campaign |
+| **Active** | **Pause**, or **End** |
+| **Paused** | **Resume**, or **End** |
+| **Completed** | **Re-run** with a new end date, audiences, and schedule |
+
+**Pause** stops dialing but keeps the campaign's progress; **Resume** picks up where it left off. **End** stops everything — running calls included — and closes the campaign. Outside your calling window the campaign pauses on its own and resumes in the next slot.
+
+## Track outcomes
+
+Open a campaign for two tabs: **Campaign Details** and **Lead Activity**.
+
+**Campaign Details** shows:
+
+- **Schedule** — start/end dates, timezone, repeat frequency, retry mode, and the calling-hour windows.
+- **Call Progress** — live counts: **Leads, Total Calls, Completed, No Answer, Failed, Pending**, and **average duration** — plus a progress bar, the number of **rounds**, and the **next round** time.
+- **Round Stats** — a per-round breakdown (total / completed / no-answer / failed / pending, and how long each round took).
+
+## Per-contact activity
+
+The **Lead Activity** tab lists every contact with its latest **disposition**, **duration**, and call **summary**, and a link into the full [call log](/guides/view-call-logs). For a lead called over several rounds, expand the row to see its **round history**. Use the **exclude** toggle to drop a contact from future rounds (toggle it back to include them again). Filter by disposition or duration.
 
 ## Audiences
 
@@ -51,14 +80,3 @@ To create one, go to **Audiences → New**:
 ## Campaigns in your CRM
 
 You can launch a campaign without leaving your CRM. In a list view in **Zoho, Freshworks, or Bigin**, select the contacts, pick an agent and a schedule, and Intrlume runs the same paced campaign over them. Each result — disposition, summary, and recording — is written back to the matching record, so your CRM stays the source of truth.
-
-## Next steps
-
-<Columns cols={2}>
-  <Card title="View call logs" icon="phone-call" href="/guides/view-call-logs" horizontal>
-    Review transcripts, recordings, and outcomes.
-  </Card>
-  <Card title="Campaigns concept" icon="megaphone" href="/concepts/campaigns" horizontal>
-    How scheduling, retries, and statuses work.
-  </Card>
-</Columns>
