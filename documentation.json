@@ -61,9 +61,9 @@
                 "icon": "megaphone"
               },
               {
-                "title": "Call Logs",
-                "path": "concepts/call-logs",
-                "icon": "phone-call"
+                "title": "Evaluations",
+                "path": "concepts/evaluations",
+                "icon": "flask-conical"
               }
             ]
           },
