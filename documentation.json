@@ -102,6 +102,11 @@
                 "icon": "flask-conical"
               },
               {
+                "title": "Settings",
+                "path": "guides/settings",
+                "icon": "settings"
+              },
+              {
                 "title": "Authentication",
                 "path": "authentication",
                 "icon": "lock"
