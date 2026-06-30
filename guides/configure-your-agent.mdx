@@ -1,0 +1,84 @@
+---
+title: Configure your agent
+description: Shape what your agent says and does in the visual workflow editor — the conversation flow, nodes, functions, variables, and actions.
+---
+
+After you [create an agent](/guides/create-an-agent), Intrlume drops you into the **workflow editor** — a visual map of the conversation. This is where you refine what the agent says, the steps it moves through, and how it decides where to go next. Open it anytime from **Agents → your agent**.
+
+<Image src="https://app.intrlume.tech/docs/images/workflow-editor.png" alt="The Intrlume workflow editor — the conversation graph and the Node Properties panel" width="1600" height="917" />
+
+## The conversation flow
+
+Every agent follows the same shape: a **system** layer, a **start** node, one or more **main task** nodes, and **end** nodes.
+
+| Piece | On the canvas | What it does |
+| --- | --- | --- |
+| **System** | *Global Context* (dashed box) | The agent's identity, persona, and always-on rules. Assembled for you; editable if you need to override it. |
+| **Start** | *Greeting & Routing* | Opens the call, reads the caller's first reply, and routes to the right next step. |
+| **Main task** | e.g. *Lead Qualification* | The working steps of the conversation — qualify, book, collect, answer. |
+| **End** | e.g. *End — Qualified Lead* | Terminal outcomes. Each end node maps to a **disposition** you'll see in call logs. |
+
+<Callout kind="info">
+  **Routing happens through functions, not lines.** Each connection is backed by a *function* the agent can call. The lines on the canvas are just a picture of those functions — edit routing in a node's **Functions** tab, not by drawing arrows.
+</Callout>
+
+## Edit a node
+
+Click any node to open the **Node Properties** panel on the right. It has four tabs.
+
+### Prompt
+
+The node's instructions — its objective and how to handle the step (for example, *"Qualify the prospect by determining who the training is for."*). Click **expand** for a full-screen editor, and type `@` to insert a [variable](#variables).
+
+The **Global Context** prompt is assembled automatically from your agent's settings and shown read-only. You can override it from its expand view, but only do so if you know what you're changing.
+
+### Functions
+
+Functions are how the conversation moves. **Each function becomes an LLM tool call** the agent can invoke when the moment is right.
+
+| Field | What it means |
+| --- | --- |
+| **Name** (snake_case) | The function name, e.g. `route_to_main` |
+| **Description (when to call)** | Tells the agent *when* to use it, e.g. "Route the caller to the main flow to explore opportunities." |
+| **Route to** | The target node — or a **decision** with conditions for branching |
+| **Properties (data to collect)** | Inputs the agent gathers before moving on, e.g. `intent` (string, required) |
+
+### Actions
+
+Things the node does automatically, separate from what the LLM says:
+
+- **Pre-actions** run on entering the node — most often **Say** a fixed line (e.g. the greeting).
+- **Post-actions** run on leaving — most often **End** the conversation (used on end nodes).
+
+### Settings
+
+- **Context strategy** — *Append* keeps the full conversation history, *Reset* starts the node with a fresh context.
+- **Respond immediately** — whether the agent speaks as soon as it enters the node or waits for the caller.
+
+## Variables
+
+Use `{variables}` to personalize what the agent says. Open the left panel to manage them:
+
+- **Variables** — values you set yourself (e.g. a campaign name).
+- **Customer Vars** — fields that come from your audience (e.g. `cust_name`, `cust_phone`, and any custom columns).
+
+Type `@` in any prompt to insert a variable token. At call time, Intrlume fills it in per contact — so "Hi {cust_name}" is personalized on every call.
+
+## Knowledge & tools
+
+- **Knowledge Base** (left panel) — link documents so the agent can answer from your content during the call. See [Knowledge Base](/concepts/knowledge-base).
+- **Tools** — actions the agent can take mid-call (look up a record, book a slot). Attach them to the node that should use them, and pre-fill any fixed inputs.
+
+## Voice, language & behavior
+
+Click the **agent card** (top-left, with the name and language) to set the voice, primary and secondary language, speaking pace, and ambient background sound. The **Lock language** toggle stops the agent from switching languages mid-call.
+
+## Test and save
+
+- **Save** (or ⌘/Ctrl+S) — validates the flow first (one start node, at least one end node, no dead ends or broken routing) and flags any issues.
+- **Test Call** — try a phone agent live; for web agents, use the web embed to test in the browser.
+- **Undo / redo** — ⌘/Ctrl+Z and ⌘/Ctrl+Shift+Z.
+
+<Callout kind="tip">
+  Make one change, test, and check the transcript in **Call Logs** before the next change — small iterations are easier to debug than big rewrites.
+</Callout>
