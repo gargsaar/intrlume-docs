@@ -56,16 +56,6 @@
                 "icon": "book-open"
               },
               {
-                "title": "Integrations",
-                "path": "concepts/integrations",
-                "icon": "wrench"
-              },
-              {
-                "title": "Audiences",
-                "path": "concepts/audiences",
-                "icon": "users"
-              },
-              {
                 "title": "Campaigns",
                 "path": "concepts/campaigns",
                 "icon": "megaphone"
@@ -74,16 +64,6 @@
                 "title": "Call Logs",
                 "path": "concepts/call-logs",
                 "icon": "phone-call"
-              },
-              {
-                "title": "Call Analytics",
-                "path": "concepts/call-analytics",
-                "icon": "bar-chart"
-              },
-              {
-                "title": "Evaluations",
-                "path": "concepts/evaluations",
-                "icon": "flask-conical"
               }
             ]
           },
