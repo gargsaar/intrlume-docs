@@ -40,9 +40,14 @@
             "icon": "layers",
             "pages": [
               {
-                "title": "Concepts",
+                "title": "Overview",
                 "path": "concepts",
                 "icon": "file-text"
+              },
+              {
+                "title": "Agents",
+                "path": "concepts/agents",
+                "icon": "bot"
               }
             ]
           },
