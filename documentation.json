@@ -1,7 +1,7 @@
 {
   "name": "Intrlume",
-  "logo-dark": "https://intrlume.documentationai.com/assets/full-logo-dark.svg",
-  "logo-light": "https://intrlume.documentationai.com/assets/full-logo-light.svg",
+  "logo-dark": "https://blob-cdn.documentation.ai/org-fbe0d2d2-e2b9-4532-89ef-8ee1d304b7d0/doc-666ca7fc-9e19-4319-a88d-e19435e25362/1782808260736-332wlpxywqn-full-logo-dark.svg?rasterize-bypass=true",
+  "logo-light": "https://blob-cdn.documentation.ai/org-fbe0d2d2-e2b9-4532-89ef-8ee1d304b7d0/doc-666ca7fc-9e19-4319-a88d-e19435e25362/1782808274134-78oq59ckzre-full-logo-light.svg?rasterize-bypass=true",
   "colors": {
     "light": {
       "brand": "#5ac4b4"
@@ -111,5 +111,6 @@
         ]
       }
     ]
-  }
+  },
+  "favicon": "https://blob-cdn.documentation.ai/org-fbe0d2d2-e2b9-4532-89ef-8ee1d304b7d0/doc-666ca7fc-9e19-4319-a88d-e19435e25362/1782807153816-d4rt86k5w0j-favicon.png?fm=auto&auto=compress%2Cformat"
 }
