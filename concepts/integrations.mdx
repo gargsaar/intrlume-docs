@@ -1,0 +1,41 @@
+---
+title: Integrations
+description: Connect Intrlume to your CRM and other tools — and give agents actions they can take on a call.
+---
+
+**Integrations** connect Intrlume to the systems you already use. They come in two flavors: **CRM integrations** that let you run AI calls from inside your CRM, and **tools** that let an agent take actions mid-call.
+
+## CRM integrations
+
+Call contacts and sync results without leaving your CRM.
+
+<Columns cols={3}>
+  <Card title="Freshworks" icon="users">
+    Call a contact from Freshsales / Freshworks and write the call summary back as a note.
+  </Card>
+  <Card title="Zoho CRM" icon="users">
+    Launch AI calls from a Zoho record and capture the outcome.
+  </Card>
+  <Card title="Zoho Bigin" icon="users">
+    The same call-from-CRM flow for Bigin's pipeline-first CRM.
+  </Card>
+</Columns>
+
+Each integration uses your own per-organization API key, so calls and data stay scoped to your workspace.
+
+## Tools
+
+Tools are actions an agent can call during a conversation — look up an order, book a slot, or hit any REST API.
+
+<Columns cols={2}>
+  <Card title="Marketplace" icon="layout-grid">
+    Install ready-made tools from templates, then attach them to a workflow.
+  </Card>
+  <Card title="Custom tools" icon="wrench">
+    Define your own: endpoint, method, parameters, and auth. Test before you ship.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Manage all of this under **Integrations** in the dashboard, and attach tools to the right step of an [agent's](/concepts/agents) workflow so they fire at the right moment. You can also send call results onward with webhooks and post-call actions.
+</Callout>
