@@ -82,6 +82,11 @@
                 "icon": "workflow"
               },
               {
+                "title": "View call logs",
+                "path": "guides/view-call-logs",
+                "icon": "phone-call"
+              },
+              {
                 "title": "Authentication",
                 "path": "authentication",
                 "icon": "lock"

@@ -1,0 +1,61 @@
+---
+title: View call logs
+description: Read, replay, and debug every call — transcripts, recordings, outcomes, and a turn-by-turn flow.
+---
+
+**Call Logs** is the record of every conversation your agents have — outbound, inbound, and web. Open any call to read it, replay it, see what the agent captured, and trace exactly what happened turn by turn.
+
+## Find a call
+
+Open **Call Logs** in the sidebar. The list shows **Time, Campaign, Call ID, Direction, Number, Duration, and Disposition**. Narrow it down with:
+
+| Filter | Options |
+| --- | --- |
+| **Search** | Call ID, phone, agent, or campaign |
+| **Time range** | Today, This Week, This Month, or a custom date range |
+| **Direction** | Outbound, Inbound, Web |
+| **Disposition** | Answered, Voicemail, No Answer, Busy, Failed, Cancelled |
+| **Source** | Campaign or Test Call |
+| **Duration** | 0–30s, 30–60s, 1–2 min, > 2 min |
+
+Filters stay in the URL, so you can share or bookmark a filtered view.
+
+## Open a call
+
+Each call opens with two tabs: **Analysis** and **Call Flow**.
+
+### Analysis
+
+The at-a-glance view, in three columns:
+
+- **Call info** — timing (started, ended, conversation length), hangup details, **credits** used (with an LLM / transcriber / synthesizer / network / platform breakdown), and links to the campaign and agent.
+- **Recording & transcript** — play and download the recording, and read the full transcript with speaker labels. For a live call, the transcript streams in real time.
+- **Analysis** — the AI summary, key topics, and next steps, plus any **extracted variables** your agent captured (name, appointment, amount, and so on).
+
+### Call Flow
+
+A turn-by-turn timeline of the conversation — the best place to debug.
+
+<Image src="https://app.intrlume.tech/docs/images/call-flow.png" alt="The Call Flow tab — a turn-by-turn timeline with timings and diagnostics" width="1600" height="859" />
+
+- **Greeting** — the opening line and its **TTFB** (time to first word).
+- **Each turn** — what the caller said and how the agent replied, with badges that flag what happened: `interrupted`, `tool_call`, `idle nudge`, `LLM ×N` (more than one model call), and latency outliers (`p95` / `p99`).
+- **Details & diagnostics** (expand a turn) — the **Node** it was in (with its prompt), voicemail detection, **language detection** (detected vs current, switched or deferred), and the raw LLM input/output.
+- **Latency strip** — where the time went on each turn: **STT** (speech-to-text), **LLM**, **TTS** (text-to-speech), and **OH** (overhead), plus the total.
+
+<Callout kind="tip">
+  Chasing a bad call? Open **Call Flow**, expand the turn that went wrong, and check the node, the LLM output, and the latency strip — it usually points straight at the cause.
+</Callout>
+
+## Dispositions
+
+Every call is tagged with an outcome you can filter and report on:
+
+| Disposition | Meaning |
+| --- | --- |
+| **Answered** | The person picked up and talked |
+| **Voicemail** | Reached voicemail |
+| **No Answer** | Rang, but no pickup |
+| **Busy** | The line was busy |
+| **Failed** | A technical error |
+| **Cancelled** | Stopped before connecting |
