@@ -1,34 +1,32 @@
 ---
 title: Audio Not Detected
-description: Fix microphone/audio input issues in voice agent tests.
+description: Fix microphone input issues during a web call test.
 ---
 
 ## Symptoms
 
-- Voice agent test does not receive audio
-- No waveform shown in dashboard
+- A **web call** test doesn't pick up your voice.
+- The agent doesn't respond to anything you say.
 
-## Causes
+## Common causes
 
-- Microphone denied by browser
-- No input device selected
+- The browser blocked microphone access.
+- The wrong input device is selected, or no device is picking up sound.
 
-## Solution
+## Fix it
 
 <Steps>
-  <Step title="Check permissions">
-    ````
-    Grant mic access in browser prompt or via site settings.
-    ````
+  <Step title="Allow microphone access" icon="mic">
+    Grant microphone access when the browser prompts you. If you dismissed it, re-enable the mic for the site in your browser's site settings, then reload.
   </Step>
-  <Step title="Test input">
-    ````
-    Use system settings to ensure mic is working.
-    ````
+  <Step title="Check your input device" icon="settings">
+    In your system sound settings, confirm the right microphone is selected and the input level moves when you speak.
   </Step>
-  <Step title="Reload Intrlume">
-    ````
-    Refresh the Intrlume dashboard and retry.
-    ````
+  <Step title="Reload and retry" icon="refresh-cw">
+    Refresh the Intrlume tab and start the web call again.
   </Step>
 </Steps>
+
+<Callout kind="tip">
+  Still no audio? Try a different browser (Chrome works best) and make sure no other app — a meeting or recorder — is holding the microphone.
+</Callout>
