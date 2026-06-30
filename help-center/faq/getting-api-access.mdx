@@ -1,21 +1,37 @@
 ---
 title: How do I get API access?
-description: Steps for obtaining an Intrlume API key.
+description: How to enable server-to-server API access and create an API key.
 ---
 
-## Overview
+## What it's for
 
-You need an API key to use Intrlume's voice AI APIs.
+An **API key** gives a server-to-server integration — for example, a CRM connector — secure access to your Intrlume organization on your behalf.
 
-## Steps
+## Enable API access
 
-1. Log in at `https://dashboard.intrlume.com`.
-2. Navigate to the **API Keys** page.
-3. Click **Generate Key**.
-4. Copy your API key and store securely.
+Server-to-server API access is **off by default** for each organization. To turn it on, email **[admin@intrlume.tech](mailto:admin@intrlume.tech)**.
 
-## Example Usage
+## Create a key
 
-```bash
-curl -H "Authorization: Bearer YOUR_API_KEY" https://api.intrlume.com/v1/agents
-```
+Once it's enabled, an **admin** creates the key:
+
+<Steps>
+  <Step title="Sign in" icon="log-in">
+    Go to [app.intrlume.tech](https://app.intrlume.tech) and sign in.
+  </Step>
+  <Step title="Open API keys" icon="key">
+    Go to **Settings → API keys** (admins only).
+  </Step>
+  <Step title="Generate" icon="sparkles">
+    Click **Generate** to create a secret **`sk_live_`** key.
+  </Step>
+  <Step title="Copy and store it" icon="lock">
+    Copy the key and store it somewhere secure — treat it like a password.
+  </Step>
+</Steps>
+
+<Callout kind="warning">
+  Keep the key secret. **Regenerating** a key immediately breaks any integration still using the old one.
+</Callout>
+
+For where API keys fit alongside the rest of your account, see [Settings](/guides/settings).

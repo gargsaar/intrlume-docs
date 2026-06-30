@@ -68,7 +68,7 @@
             ]
           },
           {
-            "group": "Guides",
+            "group": "Using IntrLume Platform",
             "icon": "compass",
             "pages": [
               {
@@ -105,11 +105,6 @@
                 "title": "Settings",
                 "path": "guides/settings",
                 "icon": "settings"
-              },
-              {
-                "title": "Authentication",
-                "path": "authentication",
-                "icon": "lock"
               }
             ]
           }
@@ -143,17 +138,6 @@
               {
                 "title": "Audio Not Detected",
                 "path": "help-center/troubleshooting/audio-not-detected"
-              }
-            ]
-          },
-          {
-            "group": "Guides",
-            "icon": "book-open",
-            "expandable": false,
-            "pages": [
-              {
-                "title": "Voice Agent Quickstart",
-                "path": "help-center/guides/voice-agent-quickstart"
               }
             ]
           }
