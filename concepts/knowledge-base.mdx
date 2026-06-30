@@ -1,42 +1,75 @@
 ---
 title: Knowledge Base
-description: Give your agents your own content — PDFs, URLs, or text — so they answer accurately on the call.
+description: Give your agents your own content — PDFs, web pages, or text — so they answer from the right source on a call.
 ---
 
-A **knowledge base** is a set of documents your agent can search **during a call** to answer questions accurately, instead of guessing. Upload your content once, link it to an agent, and Intrlume retrieves the most relevant passages in real time.
+A **knowledge base** is a set of approved documents an agent can search **during a call** to answer questions from the right source, instead of guessing or relying on the prompt alone. Add your content once, attach it to an [agent](/concepts/agents), and Intrlume retrieves the most relevant passages in real time.
 
-## Add content three ways
+## When to use one
+
+Add a knowledge base when your agent needs to answer from:
+
+- FAQs
+- Pricing and plan details
+- Product or service catalogs
+- Policies and terms
+- Eligibility or qualification rules
+- Support scripts and standard procedures
+
+<Callout kind="info">
+  A knowledge base supplements the prompt — it doesn't replace it. The agent's goal and instructions still decide *when* and *how* it uses the information.
+</Callout>
+
+## Add content
 
 <Tabs>
-  <Tab title="Upload a file" icon="file">
-    Drop in a PDF, DOCX, or text file. Intrlume extracts and indexes the text automatically.
+  <Tab title="Upload a PDF" icon="file">
+    Upload a PDF. Intrlume reads the text — including scanned pages — and indexes it.
   </Tab>
-  <Tab title="From a URL" icon="link">
-    Point to a web page and Intrlume fetches and indexes its content.
+  <Tab title="Add a URL" icon="link">
+    Point to a website. Intrlume crawls the key pages (about, products, pricing, FAQ, and more), strips out navigation and ads, and merges them into one clean source.
   </Tab>
   <Tab title="Paste text" icon="edit-3">
-    Paste FAQs, product details, or policies directly.
+    Paste FAQs, policies, or product details directly.
   </Tab>
 </Tabs>
+
+## Limits
+
+| Limit | Value |
+| --- | --- |
+| PDF size | Up to 50 MB |
+| PDF length | Up to 50 pages |
+| Knowledge bases & total storage | Set by your plan |
+
+<Callout kind="tip">
+  Use focused files with clear headings, and remove outdated or conflicting content before you add it — clean sources retrieve far more accurately than one giant file.
+</Callout>
 
 ## How it works
 
 <Steps>
-  <Step title="Ingest" icon="upload">
-    Your content is split into small chunks and turned into embeddings for search.
+  <Step title="Extract" icon="file-text">
+    Intrlume pulls clean text from your source — OCR for PDFs, a smart crawl for URLs.
   </Step>
   <Step title="Index" icon="database">
-    Status moves from *processing* to *ready* once it's searchable. Larger files take a little longer.
+    The text is split into sections and made searchable. Status moves from *processing* to *indexing*.
   </Step>
-  <Step title="Retrieve on the call" icon="search">
-    When a caller asks something, the agent searches the knowledge base and answers from the best-matching passages.
+  <Step title="Refine" icon="sparkles">
+    Intrlume distills your content into a voice-ready summary, then flips the status to **ready**. Larger sources take a little longer.
   </Step>
 </Steps>
 
-## Link it to an agent
+## How agents use it on a call
 
-Attach one or more knowledge bases to an [agent](/concepts/agents) from the workflow editor. The agent only pulls from what you link, so answers stay grounded in your content.
+When a caller asks something, the agent searches the knowledge base with **hybrid search** — matching on meaning *and* keywords — and answers from the best-matching passages. It can search **several knowledge bases at once** and merge the results, and it's tuned for Indian languages and code-switching.
 
-<Callout kind="tip">
-  Keep documents focused and current — smaller, well-scoped sources retrieve more accurately than one giant file.
-</Callout>
+## Attach it to an agent
+
+Attach one or more knowledge bases to an [agent](/concepts/agents) in the workflow editor — the agent only draws from what you link. The same knowledge base can power multiple agents; test each one after attaching it.
+
+## Manage a knowledge base
+
+- **View or edit** the extracted text — edits re-index automatically.
+- **Reprocess** a URL knowledge base to re-crawl the latest content.
+- **Delete** one anytime, as long as it isn't attached to an agent.
