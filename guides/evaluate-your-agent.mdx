@@ -1,0 +1,38 @@
+---
+title: Evaluate your agent
+description: Score real calls across quality dimensions, see exactly what to fix, and improve.
+---
+
+**Evaluations** score your agent's calls across quality dimensions — accuracy and experience — so you can trust what it says and see exactly what to improve. For what each dimension means, see [Evaluations](/concepts/evaluations).
+
+## Run an evaluation
+
+Open **Evaluations** in the sidebar and click **Run Eval**:
+
+<Steps>
+  <Step title="Pick an agent" icon="bot">
+    Choose the agent you want to evaluate.
+  </Step>
+  <Step title="Select calls" icon="phone">
+    Pick up to **5 completed calls** (each at least ~10 seconds) to score.
+  </Step>
+  <Step title="Run" icon="flask-conical">
+    Click **Run evaluation**. Intrlume replays each call and scores it against the rubric — the run shows as **Running**, then **Completed** in the list.
+  </Step>
+</Steps>
+
+<Callout kind="info">
+  If **Run Eval** is disabled, evaluation isn't turned on for that agent yet — contact Intrlume support to enable it.
+</Callout>
+
+## Read the results
+
+Open a completed run. It has three tabs:
+
+- **Analysis** — for each call, the **conversation transcript** alongside **Working Well** (the dimensions that passed) and **Issues Found** (the ones that didn't). Each line is a plain-English insight, with a **Details** view showing the judge's reasoning.
+- **Suggested Fixes** — concrete prompt improvements, each with a **before/after diff** and the dimensions it would lift.
+- **Workflow Health** — structural problems in the conversation flow (dead ends, overloaded prompts, missing fallback paths).
+
+## Improve and re-check
+
+Apply a fix in the [workflow editor](/guides/configure-your-agent), then run another evaluation to confirm the scores went up. Once you've scored enough calls, **Analyze Agent** rolls them up to surface patterns across many calls and suggest broader improvements.

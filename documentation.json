@@ -92,6 +92,11 @@
                 "icon": "phone-call"
               },
               {
+                "title": "Evaluate your agent",
+                "path": "guides/evaluate-your-agent",
+                "icon": "flask-conical"
+              },
+              {
                 "title": "Authentication",
                 "path": "authentication",
                 "icon": "lock"
