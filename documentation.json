@@ -107,6 +107,17 @@
                 "icon": "settings"
               }
             ]
+          },
+          {
+            "group": "Support",
+            "icon": "life-buoy",
+            "pages": [
+              {
+                "title": "Contact Support",
+                "href": "mailto:admin@intrlume.tech",
+                "icon": "mail"
+              }
+            ]
           }
         ]
       },
