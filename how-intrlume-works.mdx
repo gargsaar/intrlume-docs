@@ -3,7 +3,7 @@ title: How Intrlume Works
 description: The core loop — build an agent, test it, run outreach, and learn from every call.
 ---
 
-Every project in Intrlume follows the same loop: build an **agent**, test it, point it at an **audience**, run a **campaign**, and learn from the **calls** it makes. Insights from those calls feed straight back into a better agent.
+Every project in Intrlume follows the same loop: build an **agent**, test it, point it at an **audience**, run a **campaign**, and learn from the **calls** it makes. What you learn feeds straight back into a better agent.
 
 ```mermaid
 flowchart LR
@@ -11,30 +11,40 @@ flowchart LR
   B --> C[Audience]
   C --> D[Campaign]
   D --> E[Calls]
-  E --> F[Insights]
-  F -.->|refine| A
+  E --> F[Evaluation]
+  F --> G[Insights]
+  G -.->|refine| A
 ```
 
 ## The pieces
 
 <Steps>
   <Step title="Agent" icon="bot">
-    The AI that talks on the call. It carries a prompt, a voice, one or more languages, an optional knowledge base, and tools. The easiest way to create one is to describe it in plain language and let Intrlume generate it.
+    The AI that talks on the call — its prompt, voice, and languages. The easiest way to create one is to describe it in plain language and let Intrlume generate it.
   </Step>
   <Step title="Workflow" icon="workflow">
     The conversation flow behind the agent — the steps and branches that decide what it says and does next. Intrlume builds this for you; open the visual editor when you want precise control.
   </Step>
+  <Step title="Knowledge base (optional)" icon="book-open">
+    Documents (PDF, URL, or text) the agent can search mid-call to answer questions accurately.
+  </Step>
+  <Step title="Tools (optional)" icon="wrench">
+    Actions the agent can take during a call — look up a record, book a slot — through built-in or custom integrations.
+  </Step>
   <Step title="Audience" icon="users">
-    Who you call. Upload a CSV of contacts; each row can carry custom fields (name, account, appointment time) that the agent uses on the call.
+    Who you call. **Upload your leads, or bring them in from your CRM.** Each lead can carry custom fields (name, account, appointment time) that the agent uses on the call.
   </Step>
   <Step title="Campaign" icon="megaphone">
-    A run of calls to an audience, on a schedule you set — calling window, timezone, retry rules, and how many calls run at once.
+    A run of calls to an audience on a schedule — calling window, timezone, retry rules, and concurrency. Run it **right inside your CRM**, or in Intrlume.
   </Step>
   <Step title="Calls" icon="phone">
     Each conversation, across three channels: **outbound** (you call them), **inbound** (they call you), and **web** (a click-to-talk widget). Intrlume records, transcribes, and tags the outcome of every call.
   </Step>
+  <Step title="Evaluation" icon="gauge">
+    Automatic scoring of call quality — faithfulness, hallucination, and topic adherence — so you can trust what your agent says.
+  </Step>
   <Step title="Insights" icon="bar-chart">
-    Call logs, recordings, extracted data, analytics, and evaluation scores. Use them to spot what to fix, refine the agent, and run again.
+    Call logs, recordings, extracted data, and analytics. Use them to spot what to fix, refine the agent, and run again.
   </Step>
 </Steps>
 
