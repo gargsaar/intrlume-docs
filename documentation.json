@@ -77,6 +77,11 @@
                 "icon": "sparkles"
               },
               {
+                "title": "Configure your agent",
+                "path": "guides/configure-your-agent",
+                "icon": "workflow"
+              },
+              {
                 "title": "Authentication",
                 "path": "authentication",
                 "icon": "lock"
