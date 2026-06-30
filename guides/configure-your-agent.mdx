@@ -32,6 +32,10 @@ The node's instructions — its objective and how to handle the step (for exampl
 
 The **Global Context** prompt is assembled automatically from your agent's settings and shown read-only. You can override it from its expand view, but only do so if you know what you're changing.
 
+<Callout kind="tip">
+  Want to sharpen a node's prompt? Paste it into a general-purpose AI tool like **Claude** or **Gemini**, refine the wording there, and bring it back — a fast way to tighten the objective and instructions.
+</Callout>
+
 ### Functions
 
 Functions are how the conversation moves. **Each function becomes an LLM tool call** the agent can invoke when the moment is right.
@@ -55,6 +59,22 @@ Things the node does automatically, separate from what the LLM says:
 - **Context strategy** — *Append* keeps the full conversation history, *Reset* starts the node with a fresh context.
 - **Respond immediately** — whether the agent speaks as soon as it enters the node or waits for the caller.
 
+## Prompting tips
+
+Node prompts drive a **spoken** conversation, which has different rules than writing for chat. A few principles that lift results:
+
+- **Keep replies short** — one or two sentences per turn; long answers become a monologue the caller forgets.
+- **One question at a time** — ask, confirm the answer, then move on.
+- **Write for the ear** — no bold, lists, or links (the agent reads it aloud); use connectors like "first… then… finally…".
+- **Spell out numbers, dates, and money** the way they're spoken (e.g. "January second", "two hundred rupees").
+- **Give a fallback for uncertainty** — tell the agent what to say when it doesn't know, so it won't guess.
+- **Be specific**, and skip long "never say…" banlists — a short positive instruction works better.
+- **Test on real calls and iterate** — judge changes across several calls, not one, and listen end to end.
+
+<Callout kind="info">
+  Deeper references: [Vapi's voice prompting guide](https://docs.vapi.ai/prompting-guide) and the general [Prompt Engineering Guide](https://www.promptingguide.ai/). Your agent's **system prompt is generated for you** — these tips are for refining the node-level instructions.
+</Callout>
+
 ## Variables
 
 Use `{variables}` to personalize what the agent says. Open the left panel to manage them:
@@ -71,13 +91,18 @@ Type `@` in any prompt to insert a variable token. At call time, Intrlume fills 
 
 ## Voice, language & behavior
 
-Click the **agent card** (top-left, with the name and language) to set the voice, primary and secondary language, speaking pace, and ambient background sound. The **Lock language** toggle stops the agent from switching languages mid-call.
+Click the **agent card** (top-left, with the name and language) to adjust:
 
-## Test and save
+- **Voice & pace** — the synthesized voice and how fast it speaks.
+- **Language** — a primary language plus an optional second language it can switch to.
+- **Background sound** — optional ambient sound (e.g. an office) so calls feel more natural.
+- **Locale** — country, currency, and timezone for this agent (how dates and money are spoken, and scheduling).
 
-- **Save** (or ⌘/Ctrl+S) — validates the flow first (one start node, at least one end node, no dead ends or broken routing) and flags any issues.
-- **Test Call** — try a phone agent live; for web agents, use the web embed to test in the browser.
-- **Undo / redo** — ⌘/Ctrl+Z and ⌘/Ctrl+Shift+Z.
+The **Lock language** toggle (left panel) stops the agent from switching languages mid-call.
+
+## Test it
+
+**Test Call** — try a phone agent live; for web agents, use the web embed to test in the browser.
 
 <Callout kind="tip">
   Make one change, test, and check the transcript in **Call Logs** before the next change — small iterations are easier to debug than big rewrites.
