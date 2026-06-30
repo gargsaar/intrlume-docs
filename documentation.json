@@ -42,14 +42,44 @@
             "icon": "layers",
             "pages": [
               {
-                "title": "Overview",
-                "path": "concepts",
-                "icon": "file-text"
-              },
-              {
                 "title": "Agents",
                 "path": "concepts/agents",
                 "icon": "bot"
+              },
+              {
+                "title": "Knowledge Base",
+                "path": "concepts/knowledge-base",
+                "icon": "book-open"
+              },
+              {
+                "title": "Integrations",
+                "path": "concepts/integrations",
+                "icon": "wrench"
+              },
+              {
+                "title": "Audiences",
+                "path": "concepts/audiences",
+                "icon": "users"
+              },
+              {
+                "title": "Campaigns",
+                "path": "concepts/campaigns",
+                "icon": "megaphone"
+              },
+              {
+                "title": "Call Logs",
+                "path": "concepts/call-logs",
+                "icon": "phone-call"
+              },
+              {
+                "title": "Call Analytics",
+                "path": "concepts/call-analytics",
+                "icon": "bar-chart"
+              },
+              {
+                "title": "Evaluations",
+                "path": "concepts/evaluations",
+                "icon": "flask-conical"
               }
             ]
           },
