@@ -4,10 +4,14 @@
   "logo-light": "https://blob-cdn.documentation.ai/org-fbe0d2d2-e2b9-4532-89ef-8ee1d304b7d0/doc-666ca7fc-9e19-4319-a88d-e19435e25362/1782808274134-78oq59ckzre-full-logo-light.svg?rasterize-bypass=true",
   "colors": {
     "light": {
-      "brand": "#5ac4b4"
+      "brand": "#16896f",
+      "heading": "#1a1a1a",
+      "text": "#374151"
     },
     "dark": {
-      "brand": "#96D4CB"
+      "brand": "#1cb38f",
+      "heading": "#f2f2f2",
+      "text": "#c1c1c1"
     }
   },
   "navigation": {
@@ -155,5 +159,13 @@
     {
       "src": "styles/sidebar-overrides.css"
     }
-  ]
+  ],
+  "navbar": {
+    "actions": {
+      "primary": {
+        "title": "Dashboard",
+        "link": "https://app.intrlume.tech/"
+      }
+    }
+  }
 }
