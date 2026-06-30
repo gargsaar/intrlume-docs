@@ -1,5 +1,7 @@
 {
   "name": "Intrlume",
+  "logo-dark": "https://intrlume.documentationai.com/assets/full-logo-dark.svg",
+  "logo-light": "https://intrlume.documentationai.com/assets/full-logo-light.svg",
   "colors": {
     "light": {
       "brand": "#5ac4b4"
