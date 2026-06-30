@@ -1,0 +1,64 @@
+---
+title: Create a campaign
+description: Call a whole audience on a schedule — set it up in Intrlume, or launch it straight from your CRM.
+---
+
+A **campaign** calls a list of contacts with one agent, on a schedule you set, with automatic retries. Set one up in the dashboard, or launch it from your CRM.
+
+## Before you start
+
+You'll need:
+
+- An **audience** — your contact list. See [Audiences](#audiences) below.
+- An **agent** to make the calls.
+- A **phone number** — campaigns are outbound, so they need a provisioned number and a plan beyond the free trial. Email **admin@intrlume.tech** to have one added.
+
+## Create a campaign
+
+Go to **Campaigns → New** and follow the steps.
+
+<Steps>
+  <Step title="Campaign basics" icon="megaphone">
+    Give the campaign a **name**, select one or more **audiences** (all their leads will be called), and pick the **agent**.
+  </Step>
+  <Step title="Set the duration" icon="calendar">
+    Choose a **start** and **end date** — calls only run inside this window.
+  </Step>
+  <Step title="Schedule & retries" icon="refresh-cw">
+    Set the days, hours, and **timezone** calls may run, how often to **retry** (every few days), and the retry mode — **all** leads or **unanswered only**.
+  </Step>
+  <Step title="Activate" icon="play">
+    The campaign starts as a **draft**. Activate it from the campaign page when you're ready — then pause, resume, or stop anytime.
+  </Step>
+</Steps>
+
+Track progress and outcomes on the campaign page and in [Call Logs](/guides/view-call-logs).
+
+## Audiences
+
+An **audience** is the list of contacts a campaign calls. Build one once and reuse it across campaigns.
+
+To create one, go to **Audiences → New**:
+
+- Give it a **name** (and an optional description).
+- **Upload a CSV** of contacts — Intrlume maps the columns (phone, name, and so on) and standardizes phone numbers. You can also **add contacts manually**.
+- Any extra CSV columns become **custom fields** your agent can use on the call — a name, an account number, an amount due — referenced in prompts as `{cust_field}`.
+
+<Callout kind="tip">
+  Clean phone numbers and clear column headers import best; duplicates are flagged during upload.
+</Callout>
+
+## Campaigns in your CRM
+
+You can launch a campaign without leaving your CRM. In a list view in **Zoho, Freshworks, or Bigin**, select the contacts, pick an agent and a schedule, and Intrlume runs the same paced campaign over them. Each result — disposition, summary, and recording — is written back to the matching record, so your CRM stays the source of truth.
+
+## Next steps
+
+<Columns cols={2}>
+  <Card title="View call logs" icon="phone-call" href="/guides/view-call-logs" horizontal>
+    Review transcripts, recordings, and outcomes.
+  </Card>
+  <Card title="Campaigns concept" icon="megaphone" href="/concepts/campaigns" horizontal>
+    How scheduling, retries, and statuses work.
+  </Card>
+</Columns>
