@@ -72,6 +72,11 @@
             "icon": "compass",
             "pages": [
               {
+                "title": "Create an agent",
+                "path": "guides/create-an-agent",
+                "icon": "sparkles"
+              },
+              {
                 "title": "Authentication",
                 "path": "authentication",
                 "icon": "lock"

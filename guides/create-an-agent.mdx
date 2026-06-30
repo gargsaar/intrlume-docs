@@ -1,0 +1,94 @@
+---
+title: Create an agent
+description: Build a voice AI agent from the dashboard — pick a channel, describe it, and generate.
+---
+
+An **agent** is the voice AI that talks to your customers. Create one from the dashboard, test it, then point it at a campaign, a phone number, or your website.
+
+## Before you start
+
+Decide these first — Intrlume uses them to generate a better first draft:
+
+| Decision | What to prepare |
+| --- | --- |
+| Channel | Outbound, inbound, or web |
+| Industry & use case | e.g. lead qualification, appointment booking, reminders, support |
+| Voice & language | A voice, a primary language, and an optional second language |
+| Goal | One sentence on what the agent should achieve |
+| Knowledge & tools *(optional)* | Documents to answer from, and actions it can take |
+
+<Callout kind="info">
+  New accounts don't have a phone number yet, so start with a **Web** agent — it works in the browser with no number. Add numbers later for phone calls.
+</Callout>
+
+## Step 1 — Open the agent builder
+
+1. Sign in at [app.intrlume.tech](https://app.intrlume.tech).
+2. Go to **Agents** in the sidebar.
+3. Click **New** to open the builder.
+
+## Step 2 — Choose a channel
+
+Pick how people reach the agent.
+
+| Channel | Use it when | Needs |
+| --- | --- | --- |
+| **Outbound** | The agent calls your contacts | A provisioned phone number |
+| **Inbound** | People call your number | A phone number (DID) linked to the agent |
+| **Web** | Visitors talk to it on your website | Nothing — works instantly |
+
+<Callout kind="tip">
+  Choose **Web** to get started right away; create outbound or inbound agents once you've added a number.
+</Callout>
+
+## Step 3 — Pick an industry and use case
+
+Choose your **industry**, then the **use case** that fits — lead qualification, appointment booking, reminders, support, and more. This tailors the generated prompt and conversation flow to your scenario.
+
+## Step 4 — Fill in the details
+
+| Field | What to enter |
+| --- | --- |
+| **Calling name** | The name the agent introduces itself with |
+| **Company** | Your business name |
+| **Voice & language** | A voice, a primary language, and an optional second language it can switch to |
+| **Goal** | One or two sentences on what the call should achieve |
+| **Knowledge base** *(optional)* | Attach documents the agent can answer from |
+| **Tools** *(optional)* | Add actions like booking or record lookups |
+
+Example goal:
+
+```text
+Book solar demo appointments, confirm time slots, and handle rescheduling in Hindi and English.
+```
+
+## Step 5 — Generate
+
+Click **Create**. Intrlume writes the prompt, greeting, and conversation flow and builds the agent — the status moves from **generating** to **ready**, usually in moments. You'll land in the visual workflow editor, where you can refine any part.
+
+## Step 6 — Test it
+
+<Tabs>
+  <Tab title="Web call" icon="globe">
+    For a Web agent, start a **web call** in the browser and talk to it live — no phone needed.
+  </Tab>
+  <Tab title="Test call" icon="phone">
+    For a phone agent, use **Test Call** to have it ring your number.
+  </Tab>
+  <Tab title="Share a link" icon="link">
+    Generate a **web test link** (valid about 30 minutes) so a colleague can try it without a phone.
+  </Tab>
+</Tabs>
+
+After a test, open **Call Logs** to see the transcript, recording, and captured data.
+
+## Next steps
+
+<Columns cols={2}>
+  <Card title="Knowledge base" icon="book-open" href="/concepts/knowledge-base" horizontal>
+    Add documents so your agent answers from your own content.
+  </Card>
+  <Card title="Run a campaign" icon="megaphone" href="/concepts/campaigns" horizontal>
+    Call a whole audience on a schedule.
+  </Card>
+</Columns>
