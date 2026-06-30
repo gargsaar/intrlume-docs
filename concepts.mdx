@@ -1,83 +1,25 @@
 ---
 title: Core Concepts
-description: Understand agents, evaluation rubrics, call routing, and knowledge base management.
+description: The building blocks of Intrlume — agents, workflows, knowledge bases, audiences, campaigns, calls, and evaluation.
 ---
 
-## Agent Architecture
+Intrlume is built from a small set of concepts that fit together into one loop: you build an **agent**, give it a **workflow**, point it at an **audience**, run a **campaign**, and review the **calls** and **insights** that come back.
 
-Intrlume agents follow a modular architecture built around conversation flows. You define an entry prompt, attach a knowledge base, and configure redirect rules that route calls to humans or other agents when needed.
+## The building blocks
 
-```javascript
-const agentConfig = {
-  name: "Solar Demo Booker",
-  entryPrompt: "You are a helpful solar demo scheduler...",
-  knowledgeBaseId: "kb_8c12f4",
-  redirectRules: [
-    { condition: "user requests human", target: "+91 80 4719 2210" }
-  ]
-};
-```
-
-## Evaluation Metrics
-
-You measure agent quality using three core metrics that run automatically on every call.
-
-<Columns cols={3}>
-  <Card title="Faithfulness" icon="check-circle" href="#faithfulness">
-    Measures how accurately the agent uses information from your knowledge base.
-  </Card>
-  <Card title="Hallucination" icon="alert-triangle" href="#hallucination">
-    Tracks when the agent invents facts not present in your source material.
-  </Card>
-  <Card title="Topic Adherence" icon="target" href="#topic-adherence">
-    Evaluates whether the conversation stays focused on the intended goal.
-  </Card>
-</Columns>
-
-<Tabs>
-  <Tab title="Faithfulness" icon="check-circle">
-    A score above 90% indicates your agent reliably grounds responses in the provided knowledge base.
-  </Tab>
-  <Tab title="Hallucination" icon="alert-triangle">
-    Target 0% hallucination by tightening your knowledge base and adding explicit guardrails.
-  </Tab>
-  <Tab title="Topic Adherence" icon="target">
-    Scores above 95% show the agent consistently follows the booking or support workflow.
-  </Tab>
-</Tabs>
-
-## Knowledge Base and Redirect Rules
-
-Your knowledge base powers accurate answers. You upload documents or FAQs, then Intrlume automatically indexes them for retrieval.
+- **[Agents](/concepts/agents)** — the AI that holds the conversation. Carries a voice, languages, a workflow, optional knowledge bases, and tools.
+- **Workflows** — the conversation flow behind an agent: the steps and branches that decide what it says and does next.
+- **Knowledge bases** — documents (PDF, URL, or text) the agent can search mid-call to answer questions accurately.
+- **Tools** — actions the agent can take during a call, like looking up a record or booking a slot, through built-in or custom integrations.
+- **Audiences & leads** — the contacts you call, uploaded as a CSV; each lead can carry custom fields used on the call.
+- **Campaigns & batches** — a run of calls to an audience on a schedule, with retry rules and concurrency limits.
+- **Calls & dispositions** — each conversation (outbound, inbound, or web), its outcome, and the data extracted from it.
+- **Evaluation** — automatic scoring of call quality: faithfulness, hallucination, and topic adherence.
 
 <Callout kind="info">
-  Redirect rules prevent dead ends. When confidence drops below a threshold, the agent transfers the call instead of guessing.
+  New here? Start with the [Quickstart](/quickstart) to build a working agent, then come back to understand each piece.
 </Callout>
 
-````jsx
-<RedirectRule>
-  if (confidence < 0.75) {
-    transferToHuman();
-  }
-</RedirectRule>
-````
+## How they connect
 
-## Regression Testing and Prompt Iteration
-
-You iterate safely using built-in regression testing. After each prompt change, run your test suite against previous calls.
-
-<Steps>
-  <Step title="Capture baseline" icon="play">
-    Record 50 real calls to establish your current evaluation scores.
-  </Step>
-  <Step title="Update prompt" icon="edit">
-    Refine instructions while keeping the same knowledge base.
-  </Step>
-  <Step title="Run regression" icon="refresh-cw">
-    Compare new scores against the baseline to catch regressions early.
-  </Step>
-</Steps>
-
-<Expandable title="Advanced iteration tips" default-open="false">
-  You can version prompts and roll back instantly if metrics decline. Combine this with A/B testing to validate improvements before shipping to production.
-</Expandable>
+An **agent** runs a **workflow**. You point it at an **audience** and launch a **campaign**, which places **calls**. Every call is recorded, transcribed, and tagged with a **disposition**, and can be scored by **evaluation** — and those insights help you refine the agent and run again.
