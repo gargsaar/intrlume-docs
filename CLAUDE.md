@@ -37,7 +37,55 @@ listing eval metrics ("hallucination", "topic adherence") that don't exist in th
   as `https://app.intrlume.tech/docs/images/<file>`. They go live only after `frontend-app`
   is redeployed.
 
-## Publishing
+## Updating the docs
 
-- Branch → edit → PR → preview/review → merge to `main` (auto-deploys). Validate links and
-  component balance before merging.
+The repo is Git-synced to Documentation.AI: **pushing to `main` auto-builds and deploys**
+(~15–60s). Live at `https://docs.intrlume.tech`. Never edit `main` directly — always branch,
+PR, and merge.
+
+**Where it lives.** The docs are a **separate repo**, a sibling of `outreach-pro` — NOT inside
+it: `…/production/intrlume-docs` (GitHub `gargsaar/intrlume-docs`). If it isn't cloned locally,
+clone it next to `outreach-pro`: `git clone https://github.com/gargsaar/intrlume-docs.git`.
+
+**The loop:**
+
+1. `git checkout main && git pull --ff-only origin main`
+2. `git checkout -b docs/<short-topic>`
+3. **Check the code first** (golden rule) for any label, flow, or behavior you'll write.
+4. Edit the MDX page(s). Add/rename/remove pages in `documentation.json` (`navigation.tabs`).
+5. **Validate** before committing:
+   - `python3 -c "import json; json.load(open('documentation.json'))"` — JSON must parse.
+   - Internal links resolve to real pages; every MDX component is closed.
+6. Commit, then `git push -u origin docs/<short-topic>`.
+7. `gh pr create --base main --title "…" --body "…"`.
+8. `gh pr merge <n> --squash --delete-branch`. If it says the PR isn't mergeable, wait a few
+   seconds and retry — GitHub computes mergeability right after creation.
+9. `git checkout main && git pull`.
+10. **Verify live** (below).
+
+**Verify live — beat the CDN cache.** The page and its `.md` endpoint are CDN-cached, so a
+plain fetch can serve the old version. Append a cache-buster to confirm the new content:
+
+```
+curl -s "https://docs.intrlume.tech/<path>.md?cb=$RANDOM" | head
+```
+
+(Same in the browser — hard-refresh or add `?v=2`.) Build/deploy takes ~15–60s; poll a few times.
+
+**Commits:** author is Sarthak Garg; end the message with
+`Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`. Do **not** add a Sonnet co-author line.
+
+## documentation.json structure
+
+- **Documentation** tab: `tabs[].groups[].pages[]` (each page = `{title, path, icon}`).
+- **Help Center** tab: `tabs[].pages[]` holding a mix of page objects and `{group, pages[]}` groups.
+- Internal pages use **`path`** (docs-root-relative, no leading slash). External links use
+  **`href`** (`https://…`, `mailto:…`).
+- The sidebar has **no dedicated bottom slot** — for a bottom link, add a small one-item group
+  at the end of a tab's groups. Persistent CTAs go in the top `navbar.actions`.
+
+## Gotchas
+
+- **Bare email in a heading** auto-links and swallows the preceding space (`needsadmin@…`).
+  Use an explicit link: `## What needs [admin@intrlume.tech](mailto:admin@intrlume.tech)`.
+- **Images** go live only after `frontend-app` redeploys (see Images above).
