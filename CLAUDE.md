@@ -43,6 +43,10 @@ The repo is Git-synced to Documentation.AI: **pushing to `main` auto-builds and 
 (~15–60s). Live at `https://docs.intrlume.tech`. Never edit `main` directly — always branch,
 PR, and merge.
 
+**Where it lives.** The docs are a **separate repo**, a sibling of `outreach-pro` — NOT inside
+it: `…/production/intrlume-docs` (GitHub `gargsaar/intrlume-docs`). If it isn't cloned locally,
+clone it next to `outreach-pro`: `git clone https://github.com/gargsaar/intrlume-docs.git`.
+
 **The loop:**
 
 1. `git checkout main && git pull --ff-only origin main`
