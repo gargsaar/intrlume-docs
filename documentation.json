@@ -149,6 +149,10 @@
               {
                 "title": "Audio Not Detected",
                 "path": "help-center/troubleshooting/audio-not-detected"
+              },
+              {
+                "title": "Knowledge Base not fetching accurate info",
+                "path": "help-center/troubleshooting/kb-not-fetching-accurate-info"
               }
             ]
           }
