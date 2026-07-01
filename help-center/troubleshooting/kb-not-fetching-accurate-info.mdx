@@ -1,0 +1,43 @@
+---
+title: Knowledge Base not fetching accurate info
+description: When your agent answers from a knowledge base incorrectly, review the indexed content, fix it, and re-index.
+---
+
+## Symptoms
+
+- The agent gives **wrong, outdated, or incomplete** answers from a knowledge base.
+- It misses details that are clearly in your original document.
+
+## Why this happens
+
+Your agent doesn't re-read the original file on every call — it retrieves from the **indexed content**, the text that was extracted from your upload when the knowledge base was processed. If extraction missed a section, garbled a table, or the source has since changed, the answers will be off. The fix is to review that indexed text and re-index it.
+
+## Fix it
+
+<Steps>
+  <Step title="Open the knowledge base" icon="book-open">
+    Go to **Knowledge Base** in the sidebar and click the knowledge base's name to open it.
+  </Step>
+  <Step title="Review the indexed content" icon="file-text">
+    The viewer shows the **indexed content** — exactly what the agent retrieves on a call. Compare it against your source; for a PDF, use **View original** to open the uploaded file side by side. Look for missing sections, garbled tables, or extra clutter (navigation, repeated headers).
+  </Step>
+  <Step title="Make your changes" icon="pencil">
+    Edit the text directly in the viewer — correct mistakes, add missing details, and remove noise. An **Unsaved changes** note appears as you edit.
+  </Step>
+  <Step title="Save & Re-index" icon="refresh-cw">
+    Click **Save & Re-index**. Your edits are re-chunked and re-embedded — you'll see **Re-indexing started**, and the status returns to **Ready** in a few seconds.
+  </Step>
+  <Step title="Re-test the agent" icon="play">
+    Ask the agent the same question again to confirm the answer is now correct.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  For a **website** knowledge base that's gone stale, use **Recrawl** (in the ⋯ menu) to pull fresh content from the URL. Note: recrawling **replaces** your manual edits with the newly scraped text.
+</Callout>
+
+<Callout kind="info">
+  Only a knowledge base in the **Ready** state is used on calls. If it's stuck on **Processing**, **Indexing**, or shows **Failed**, wait for it to finish — or re-upload — before testing.
+</Callout>
+
+For how knowledge bases are extracted, chunked, and retrieved, see [Knowledge Base](/concepts/knowledge-base).
