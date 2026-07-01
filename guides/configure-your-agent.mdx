@@ -14,7 +14,7 @@ Every agent follows the same shape: a **system** layer, a **start** node, one or
 | Piece | On the canvas | What it does |
 | --- | --- | --- |
 | **System** | *Global Context* (dashed box) | The agent's identity, persona, and always-on rules. Assembled for you; editable if you need to override it. |
-| **Start** | *Greeting & Routing* | Opens the call, reads the caller's first reply, and routes to the right next step. |
+| **Start** | *Greeting* | Speaks the generated greeting, handles the caller's first reply, then routes to the main flow. |
 | **Main task** | e.g. *Lead Qualification* | The working steps of the conversation — qualify, book, collect, answer. |
 | **End** | e.g. *End — Qualified Lead* | Terminal outcomes. Each end node maps to a **disposition** you'll see in call logs. |
 
@@ -28,9 +28,17 @@ Click any node to open the **Node Properties** panel on the right. It has four t
 
 ### Prompt
 
-The node's instructions — its objective and how to handle the step (for example, *"Qualify the prospect by determining who the training is for."*). Click **expand** for a full-screen editor, and type `@` to insert a [variable](#variables).
+The **Prompt** tab holds the node's **Task Message** — the field that shapes what the agent does at *this* step. Click **expand** for a full-screen editor, and type `@` to insert a [variable](#variables).
 
-The **Global Context** prompt is assembled automatically from your agent's settings and shown read-only. You can override it from its expand view, but only do so if you know what you're changing.
+**Put the conversation here.** The Task Message is where your instructions about the **flow and steps** belong — the step's objective, the questions to ask and in what order, how to handle answers, and when to move on (for example, *"Qualify the prospect by determining who the training is for, then route to booking."*).
+
+**Don't repeat the agent's identity or style.** Its name, role, behavior, tone, and personality are already generated and live in the **system prompt** — see [What the system prompt already covers](#what-the-system-prompt-already-covers). Restating them in a Task Message is redundant and can conflict with the system prompt.
+
+**Don't put the greeting here.** The opening line is generated and lives on the **start node's Actions tab** as a **Say** action — not in the Task Message. To change the greeting, edit that action (see [Actions](#actions)).
+
+**The start node is special.** Its Task Message should cover only the **opening exchange** — how to respond to the caller's *first* message, and then hand off to the main flow. The greeting is already spoken by the Say action, so the start node simply reacts to the caller's reply and **routes** to a main task node. Keep the actual conversation steps in the main task node(s), not here.
+
+The **Global Context** node is different: its prompt is labeled **System Prompt (auto-assembled)** and is read-only, built from your agent's settings. You can override it from its expand view, but only if you know what you're changing.
 
 <Callout kind="tip">
   Want to sharpen a node's prompt? Paste it into a general-purpose AI tool like **Claude** or **Gemini**, refine the wording there, and bring it back — a fast way to tighten the objective and instructions.
@@ -58,6 +66,21 @@ Things the node does automatically, separate from what the LLM says:
 
 - **Context strategy** — *Append* keeps the full conversation history, *Reset* starts the node with a fresh context.
 - **Respond immediately** — whether the agent speaks as soon as it enters the node or waits for the caller.
+
+## What the system prompt already covers
+
+Before every call, Intrlume assembles your agent's **system prompt** (the **Global Context**) from its settings. Knowing what's already in there tells you what *not* to repeat in a node's Task Message. In order, it covers:
+
+| Section | What it already handles |
+| --- | --- |
+| **Identity & personality** | Who the agent is — its name, your company, its role and goal — plus human-like habits (one question at a time, never sounds like a bot). |
+| **Environment** | The call context — a live phone call, outbound vs inbound, the current date and time, and anything already known about the caller. |
+| **Tone** | How it speaks — the current language, your chosen tone and style, native-script rules for Indian languages, and how to say numbers, dates, and money for your locale. |
+| **Tools** | Rules for using tools — calling them silently, looking things up in a linked knowledge base, and ending the call cleanly. |
+| **Response guidelines** | How it replies — keep it short and speakable, read back key details like phone numbers and names, collect the values it needs, and stay on goal. |
+| **Guardrails** | Its boundaries — stick to facts, decline out-of-scope or unsafe requests, and stay professional with difficult callers. |
+
+Because all of this is already generated, your node **Task Messages** should focus only on the conversation itself — the steps, questions, and routing for each stage.
 
 ## Prompting tips
 
