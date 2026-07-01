@@ -1,18 +1,46 @@
 ---
 title: Inaccurate KB answers
-description: When your agent answers from a knowledge base incorrectly, review the indexed content, fix it, and re-index.
+description: When your agent answers from a knowledge base incorrectly, check it's linked to the agent, then review and re-index the content.
 ---
 
 ## Symptoms
 
 - The agent gives **wrong, outdated, or incomplete** answers from a knowledge base.
-- It misses details that are clearly in your original document.
+- It misses details that are clearly in your original document — or ignores the knowledge base entirely.
 
 ## Why this happens
 
-Your agent doesn't re-read the original file on every call — it retrieves from the **indexed content**, the text that was extracted from your upload when the knowledge base was processed. If extraction missed a section, garbled a table, or the source has since changed, the answers will be off. The fix is to review that indexed text and re-index it.
+There are two common causes:
 
-## Fix it
+1. The knowledge base **isn't linked to the agent**, so the agent never uses it.
+2. The knowledge base is linked, but the **indexed content** — the text the agent actually retrieves — is wrong, incomplete, or stale.
+
+Work through them in order.
+
+## 1. Check the knowledge base is linked to the agent
+
+The agent only uses knowledge bases that are attached to it in the [workflow editor](/guides/configure-your-agent). If it isn't linked, the content doesn't matter — the agent never sees it.
+
+<Steps>
+  <Step title="Open the workflow editor" icon="workflow">
+    Open the agent and go to its workflow editor.
+  </Step>
+  <Step title="Open the Knowledge Base panel" icon="book-open">
+    In the left sidebar, click **Knowledge Base** to expand the panel. Any linked knowledge bases are listed there.
+  </Step>
+  <Step title="Link it if it's missing" icon="link">
+    If you see **"No KB linked"**, click **Link** and choose the knowledge base from the list. (Only knowledge bases that have finished processing appear.)
+  </Step>
+  <Step title="Save the workflow" icon="save">
+    Click **Save** at the top right. Linking only takes effect once the workflow is saved.
+  </Step>
+</Steps>
+
+Re-test the agent. If it's linked and answers are still off, fix the content below.
+
+## 2. Review and fix the indexed content
+
+Your agent doesn't re-read the original file on every call — it retrieves from the **indexed content** that was extracted when the knowledge base was processed. If extraction missed a section, garbled a table, or the source has since changed, the answers will be off.
 
 <Steps>
   <Step title="Open the knowledge base" icon="book-open">
